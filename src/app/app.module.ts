@@ -7,8 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, 
-  MatExpansionModule, MatIconModule, MatListModule, MatMenuModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, } from '@angular/material';
+          MatExpansionModule, MatIconModule, MatListModule, 
+          MatMenuModule, MatGridListModule, MatCardModule,
+          MatTableModule, MatPaginatorModule, MatSortModule,
+          MatFormFieldModule, MatInputModule }
+from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -17,9 +25,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     SideMenuComponent,
     DashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -35,6 +46,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
