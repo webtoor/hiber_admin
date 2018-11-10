@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, 
-  MatExpansionModule, MatIconModule, MatListModule, MatMenuModule, } from '@angular/material';
+  MatExpansionModule, MatIconModule, MatListModule, MatMenuModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, } from '@angular/material';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,11 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
+    MatGridListModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
