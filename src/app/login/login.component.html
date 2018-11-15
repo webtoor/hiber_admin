@@ -1,6 +1,28 @@
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+<mat-card class="login">
+  <mat-grid-list cols="2" rowHeight="300px">
+
+<mat-card-title>
+  <div style="text-align:center; color:#ff4081">LOGIN</div>
+</mat-card-title>
+<br>
+<mat-card-content>
+    <div class="example-container">
+  <mat-form-field appearance="outline">
+  <mat-label>Email</mat-label>
+  <input matInput placeholder="Enter your email" [formControl]="email">
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Enter your password" type="password" [formControl]="password">
+    <mat-error *ngIf="password.invalid">{{getErrorPassword()}}</mat-error>
   </mat-form-field>
 </div>
+<div style="text-align:center">
+<button mat-raised-button color="primary" style="width:200px"  (click)="submit()">Login</button>
+</div>
+</mat-card-content>
+</mat-grid-list>
+
+</mat-card>
+
