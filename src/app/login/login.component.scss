@@ -1,8 +1,13 @@
+.login {
+  position: relative;
+  top: 120px;
+  margin: auto;
+  max-width: 350px;
+}
 .example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}
