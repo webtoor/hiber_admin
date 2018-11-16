@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { UserUserComponent } from './user-user/user-user.component';
 
 
 
@@ -26,6 +27,7 @@ import { LoginComponent } from './login/login.component';
     SideMenuComponent,
     DashboardComponent,
     LoginComponent,
+    UserUserComponent,
   ],
   imports: [
     BrowserModule,
