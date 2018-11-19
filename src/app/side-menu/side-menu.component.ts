@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -15,6 +16,10 @@ export class SideMenuComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
+  constructor(private breakpointObserver: BreakpointObserver, public router : Router) {}
+    
+  logoutUser(){
+    localStorage.removeItem('adminData');
+    this.router.navigate(['/login']);
+  }
 }

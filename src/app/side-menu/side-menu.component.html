@@ -64,7 +64,7 @@
 
       <mat-menu #appMenu="matMenu">
           <button mat-menu-item>Account</button>
-          <button mat-menu-item>Logout</button>
+          <button mat-menu-item (click)="logoutUser()">Logout</button>
         </mat-menu>
         
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
