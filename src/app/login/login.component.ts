@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('loginpage')
+    if(localStorage.getItem('adminData') == ''){
+
+    }else{
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   getErrorMessage() {

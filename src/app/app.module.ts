@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { UserUserComponent } from './user-user/user-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 
@@ -53,7 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
