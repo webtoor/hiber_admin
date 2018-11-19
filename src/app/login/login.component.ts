@@ -36,17 +36,21 @@ export class LoginComponent implements OnInit {
     this.user.email = this.email.value;
     this.user.password = this.password.value;
     //console.log(this.user)
-    //this.router.navigate(['/dashboard']);
+    if(this.user.email && this.user.password){
     this.authService.postData(this.user, "login_admin", "").subscribe(
       res => {
-        //console.log(res)
+        console.log(res)
         if(res.access_token){
         localStorage.setItem('adminData', JSON.stringify(res));
         this.router.navigate(['/dashboard']);
       }else{
-        alert("Invalid credentials");
-      } },
+        alert("Invalid credentials \nThe user credentials were incorrect");
+      } 
+    },
       err => console.log(err)
     )
+  }else{
+    return this.getErrorPassword()
   }
+}
 }
