@@ -3,9 +3,6 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { UserUserDataSource } from './user-user-datasource';
 import { AuthService } from '../auth.service';
 import { UserService } from '../services/user.service';
-import { DataSource } from '@angular/cdk/collections';
-import { Observable, of as observableOf, merge } from 'rxjs';
-import { UserUser } from '../model/user-user.model';
 
 @Component({
   selector: 'app-user-user',
@@ -15,7 +12,7 @@ import { UserUser } from '../model/user-user.model';
 export class UserUserComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource = new UserUserDataSource (this.userService);
+  dataSource : UserUserDataSource;
   data_admin:any;
   user_data:any;
   data : any;
@@ -26,6 +23,7 @@ export class UserUserComponent implements OnInit {
    }
   ngOnInit() {
     /* this.dataSource = new UserUserDataSource(this.paginator, this.sort); */
+    this.dataSource = new UserUserDataSource (this.userService);
   }
   getUser(){
     const data  = localStorage.getItem('adminData');

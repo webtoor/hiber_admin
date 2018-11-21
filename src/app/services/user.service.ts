@@ -1,13 +1,6 @@
-import {
-  Injectable
-} from '@angular/core';
-import {
-  Observable,
-} from 'rxjs';
-import {
-  HttpClient,
-  HttpHeaders
-} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { UserUser } from '../model/user-user.model';
 import { map, catchError } from 'rxjs/operators';
 
@@ -24,7 +17,7 @@ export class UserService {
    getUser() : Observable<UserUser[]> {
     const data  = localStorage.getItem('adminData');
     this.data_admin = JSON.parse(data);
-    console.log(this.data_admin)
+    //console.log(this.data_admin)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -32,7 +25,6 @@ export class UserService {
         'Authorization': 'Bearer ' + this.data_admin['access_token']
       })
     };
-   
    //return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions)
    return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions) 
    .pipe(

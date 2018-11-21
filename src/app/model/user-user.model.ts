@@ -12,6 +12,8 @@ export interface UserUser {
    user: {
       id : number;
       username: string;
+      firstname : string;
+      lastname: string;
       email: string;
    }
 }

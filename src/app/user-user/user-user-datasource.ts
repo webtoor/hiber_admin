@@ -18,7 +18,7 @@ import { UserService } from '../services/user.service';
  */
 export class UserUserDataSource extends DataSource<any> {
  /*  data  : UserUser[] = EXAMPLE_DATA */
-      data
+    data 
   constructor(public userService: UserService) {
     super();
   }
@@ -31,7 +31,6 @@ export class UserUserDataSource extends DataSource<any> {
 
   connect(): Observable<UserUser[]> {
      this.data =  this.userService.getUser();
-
     return this.data
   }
   disconnect() {}
