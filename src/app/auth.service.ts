@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
 
 let apiUrl = "http://127.0.0.1:8000/";
 
@@ -16,7 +15,7 @@ export class AuthService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Accept' : 'application/json',
-        'Authorization': access_token
+        'Authorization': 'Bearer ' + access_token
       })
     };
     return this.http.post<any>(apiUrl+type, credentials, httpOptions)
@@ -30,10 +29,10 @@ export class AuthService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Accept' : 'application/json',
-        'Authorization': access_token
+        'Authorization': 'Bearer ' + access_token
       })
     };
-    return this.http.get<any>(apiUrl+type, httpOptions)
+    return this.http.get(apiUrl+type, httpOptions)
     .pipe(
       
       );
