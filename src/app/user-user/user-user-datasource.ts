@@ -2,28 +2,24 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-
-// TODO: Replace this with your own data model type
-export interface UserUserItem {
-  name: string;
-  id: number;
-}
+import { UserUser } from '../model/user-user.model';
+import { UserService } from '../services/user.service';
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: UserUserItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-];
+/*  const EXAMPLE_DATA: UserUser[] =  [
+  {id: 1, firstname: 'Hydrogen', lastname: 'Hydrogen'},
+  {id: 2, firstname: 'Helium', lastname: 'Hydrogen'},
+];  */
 
 /**
  * Data source for the UserUser view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class UserUserDataSource extends DataSource<UserUserItem> {
-  data: UserUserItem[] = EXAMPLE_DATA;
-
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+export class UserUserDataSource extends DataSource<any> {
+ /*  data  : UserUser[] = EXAMPLE_DATA */
+      data
+  constructor(public userService: UserService) {
     super();
   }
 
@@ -32,9 +28,17 @@ export class UserUserDataSource extends DataSource<UserUserItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<UserUserItem[]> {
+
+  connect(): Observable<UserUser[]> {
+     this.data =  this.userService.getUser();
+
+    return this.data
+  }
+  disconnect() {}
+/*   connect(): Observable<UserUser[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
+
     const dataMutations = [
       observableOf(this.data),
       this.paginator.page,
@@ -47,28 +51,28 @@ export class UserUserDataSource extends DataSource<UserUserItem> {
     return merge(...dataMutations).pipe(map(() => {
       return this.getPagedData(this.getSortedData([...this.data]));
     }));
-  }
+  } */
 
   /**
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect() {}
+  /* disconnect() {} */
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: UserUserItem[]) {
+/*   private getPagedData(data: UserUser[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
-  }
+  } */
 
   /**
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: UserUserItem[]) {
+/*   private getSortedData(data: UserUser[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
@@ -76,15 +80,16 @@ export class UserUserDataSource extends DataSource<UserUserItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
+        case 'firstname': return compare(a.firstname, b.firstname, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }
     });
   }
-}
+} */
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
-function compare(a, b, isAsc) {
+/* function compare(a, b, isAsc) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+} */
 }
