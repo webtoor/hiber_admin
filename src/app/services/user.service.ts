@@ -2,13 +2,14 @@ import {
   Injectable
 } from '@angular/core';
 import {
-  Observable
+  Observable,
 } from 'rxjs';
 import {
   HttpClient,
   HttpHeaders
 } from '@angular/common/http';
 import { UserUser } from '../model/user-user.model';
+import { map, catchError } from 'rxjs/operators';
 
 let apiUrl = "http://127.0.0.1:8000/api/admin/";
 let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
@@ -32,11 +33,25 @@ export class UserService {
       })
     };
    
-   return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions)
+   //return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions)
+   return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions) 
+   .pipe(
+    map(res => {
+      if (res['success'] == false) {
+        throw new Error('Value expected!');
+      }
+      console.log(res['data'])
+      return res['data'];
+    }),
+    catchError(this.handleError)
+  );
+}  
+   
 
-  } 
-
-  
+  private handleError(error: Response | any) {  
+    console.error(error.message || error);  
+    return Observable.throw(error.status);  
+  }  
   
 /*   getUser(): Observable<UserUser[]> {
     return this.http.get<UserUser[]>(serviceUrl);
