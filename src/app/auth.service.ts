@@ -24,6 +24,20 @@ export class AuthService {
       
     );
   }
+
+  getData(type, access_token){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept' : 'application/json',
+        'Authorization': access_token
+      })
+    };
+    return this.http.get<any>(apiUrl+type, httpOptions)
+    .pipe(
+      
+      );
+  }
  
   isAuthenticated(){
     return localStorage.getItem('adminData');

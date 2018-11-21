@@ -17,7 +17,10 @@ export class SideMenuComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, public router : Router) {}
-    
+  
+  ngOnInit(){
+    //console.log(localStorage.getItem('adminData'));
+  }
   logoutUser(){
     localStorage.removeItem('adminData');
     this.router.navigate(['/login']);
