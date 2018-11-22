@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
-import { UserUserDataSource } from './user-user-datasource';
+import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { AuthService } from '../auth.service';
 import { UserService } from '../services/user.service';
 
@@ -11,29 +10,44 @@ import { UserService } from '../services/user.service';
 })
 export class UserUserComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  dataSource : UserUserDataSource;
-  data_admin:any;
+  dataSource 
+  length
+/*   data_admin:any;
   user_data:any;
-  data : any;
+  datas : any; */
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber'];
+
   constructor(public authService : AuthService, private userService: UserService) {
    
    }
+
   ngOnInit() {
     /* this.dataSource = new UserUserDataSource(this.paginator, this.sort); */
-    this.dataSource = new UserUserDataSource (this.paginator, this.userService);
+   //
+
+   this.userService.getUser().subscribe(record => {
+    this.dataSource = new MatTableDataSource(record);
+    this.length = record.length;
+    this.dataSource.paginator = this.paginator;
+    //console.log(this.dataSource.data.length)
+  }); 
+
+
   }
-  getUser(){
-    const data  = localStorage.getItem('adminData');
-    this.data_admin = JSON.parse(data);
+
+  ngAfterViewInit() {
+  }
+
+ /*  getUser(){
+    const datas  = localStorage.getItem('adminData');
+    this.data_admin = JSON.parse(datas);
     //console.log(this.data_admin['access_token'])
     this.authService.getData("api/admin/user_show", this.data_admin['access_token']).subscribe(data => {
-      console.log(data);
-      return this.data = data;
+      console.log(datas);
+      return this.datas = datas;
     });
-  }
+  } */
 
 
 }

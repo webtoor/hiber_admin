@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { UserUser } from '../model/user-user.model';
 import { map, catchError } from 'rxjs/operators';
-
 let apiUrl = "http://127.0.0.1:8000/api/admin/";
 let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
 
@@ -12,7 +11,7 @@ let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
 })
 export class UserService {
   data_admin:any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient ) {}
 
    getUser() : Observable<UserUser[]> {
     const data  = localStorage.getItem('adminData');
