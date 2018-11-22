@@ -24,15 +24,27 @@
       [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
 </div> -->
-<div>
+    <div class="mat-elevation-z8">
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.username}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef>Firstname</mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.user.firstname}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef>Lastname</mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.user.lastname}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="phonenumber">
+        <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.user.phonenumber}} </mat-cell>
     </ng-container>
    <!--  <ng-container matColumnDef="phone">
       <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
@@ -45,5 +57,11 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+  <mat-paginator #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
 </div>
 </app-side-menu> 

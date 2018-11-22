@@ -17,13 +17,13 @@ export class UserUserComponent implements OnInit {
   user_data:any;
   data : any;
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['username', 'email'];
+  displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber'];
   constructor(public authService : AuthService, private userService: UserService) {
    
    }
   ngOnInit() {
     /* this.dataSource = new UserUserDataSource(this.paginator, this.sort); */
-    this.dataSource = new UserUserDataSource (this.userService);
+    this.dataSource = new UserUserDataSource (this.paginator, this.userService);
   }
   getUser(){
     const data  = localStorage.getItem('adminData');
