@@ -8,7 +8,6 @@
 } */
 
 export interface UserUser {
-  user_id:string;
    user: {
       id : number;
       username: string;
