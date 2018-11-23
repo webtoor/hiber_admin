@@ -31,7 +31,7 @@ export class UserService {
       if (res['success'] == false) {
         throw new Error('Value expected!');
       }
-      console.log(res['data'])
+      //console.log(res['data'])
       return res['data'];
     }),
     catchError(this.handleError)
