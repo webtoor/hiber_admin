@@ -58,8 +58,7 @@ export class UserUserComponent implements OnInit {
       data.user.firstname.toLowerCase().includes(filter) || 
       data.user.lastname.toLowerCase().includes(filter) || 
       data.user.phonenumber.toString().includes(filter) || 
-      data.user.created_at.toString().includes(filter) || 
-      data.user.created_at.toLowerCase().includes(filter)
+      data.user.created_at.toString().includes(filter)  
     };
   }); 
 
