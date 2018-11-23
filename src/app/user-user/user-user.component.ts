@@ -16,7 +16,7 @@ export class UserUserComponent implements OnInit {
   user_data:any;
   datas : any; */
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber'];
+  displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
 
   constructor(public authService : AuthService, private userService: UserService) {
    
@@ -34,9 +34,6 @@ export class UserUserComponent implements OnInit {
   }); 
 
 
-  }
-
-  ngAfterViewInit() {
   }
 
  /*  getUser(){

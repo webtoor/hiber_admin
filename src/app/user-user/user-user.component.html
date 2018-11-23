@@ -46,6 +46,10 @@
         <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
         <mat-cell *matCellDef="let user"> {{user.user.phonenumber}} </mat-cell>
     </ng-container>
+    <ng-container matColumnDef="created_at">
+      <mat-header-cell *matHeaderCellDef>Join</mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.user.created_at | date:'MMM dd, yyyy' }} </mat-cell>
+  </ng-container>
    <!--  <ng-container matColumnDef="phone">
       <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.phone}} </mat-cell>

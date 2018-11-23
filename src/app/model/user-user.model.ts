@@ -16,5 +16,6 @@ export interface UserUser {
       lastname: string;
       email: string;
       phonenumber:string;
+      created_at:any;
    }
 }
