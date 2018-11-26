@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { UserUser } from '../model/user-user.model';
+import { UserOrder } from '../model/user-order.model';
 import { map, catchError } from 'rxjs/operators';
 let apiUrl = "http://127.0.0.1:8000/api/admin/";
 let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
@@ -38,7 +39,7 @@ export class UserService {
   );
 }  
 
-getOrder() : Observable<UserUser[]> {
+getOrder() : Observable<UserOrder[]> {
   const data  = localStorage.getItem('adminData');
   this.data_admin = JSON.parse(data);
   //console.log(this.data_admin)
@@ -50,7 +51,7 @@ getOrder() : Observable<UserUser[]> {
     })
   };
  //return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions)
- return this.http.get<UserUser[]>(apiUrl + 'order_show', httpOptions) 
+ return this.http.get<UserOrder[]>(apiUrl + 'order_show', httpOptions) 
  .pipe(
   map(res => {
     if (res['success'] == false) {

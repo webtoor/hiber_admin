@@ -1,4 +1,3 @@
-<app-side-menu>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -6,9 +5,7 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar class="mat-elevation-z4" style="color:white;background-color: #3f51b5; height: 56px;"><div style="margin-left:70px"><a style="color:white;text-decoration:none;" href="/dashboard">HIBER</a></div></mat-toolbar>
     <mat-nav-list>
-        <mat-list-item>
-          <a href="/dashboard" style="margin-left: 8px;">DASHBOARD</a>
-        </mat-list-item>
+        <a mat-list-item href="/dashboard" style="margin-left: 8px;">DASHBOARD</a>
         <mat-divider></mat-divider>
       </mat-nav-list>
     <mat-accordion>
@@ -25,10 +22,12 @@
               USER
             </mat-list-item>
           </a>
+          <a href="/order">
             <mat-list-item>
                 <mat-icon matListIcon>card_travel</mat-icon>
-              <a href="/order">ORDER</a>
+              ORDER
             </mat-list-item>
+          </a>
           </mat-nav-list>
       </mat-expansion-panel>
     
