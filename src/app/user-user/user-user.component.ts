@@ -36,7 +36,7 @@ export class UserUserComponent implements OnInit {
   user_data:any;
   datas : any; */
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['user_id','username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
+  displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
 
   constructor(public authService : AuthService, private userService: UserService) {
    
@@ -45,21 +45,21 @@ export class UserUserComponent implements OnInit {
   ngOnInit() {
     /* this.dataSource = new UserUserDataSource(this.paginator, this.sort); */
    //
-   console.log(ELEMENT_DATA)
+  // console.log(ELEMENT_DATA)
    
    this.userService.getUser().subscribe(record => {
     this.dataSource = new MatTableDataSource(record);
    // console.log(record[0]['user'])
     this.length = record.length;
     this.dataSource.paginator = this.paginator;
-    this.dataSource.filterPredicate = function(data, filter: string): boolean {
+     this.dataSource.filterPredicate = function(data, filter: string): boolean {
       return data.user.username.toLowerCase().includes(filter) || 
       data.user.email.toLowerCase().includes(filter) || 
       data.user.firstname.toLowerCase().includes(filter) || 
       data.user.lastname.toLowerCase().includes(filter) || 
       data.user.phonenumber.toString().includes(filter) || 
       data.user.created_at.toString().includes(filter)  
-    };
+    }; 
   }); 
 
 

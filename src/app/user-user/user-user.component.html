@@ -27,7 +27,7 @@
     <div class="mat-elevation-z8">
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      </mat-form-field>
+      </mat-form-field> 
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="username">
       <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
@@ -64,11 +64,11 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <!-- <mat-paginator #paginator
+  <mat-paginator #paginator
   [length]="length"
   [pageIndex]="0"
   [pageSize]="2"
   [pageSizeOptions]="[1, 2, 3, 4]">
-</mat-paginator> -->
+</mat-paginator> 
 </div>
 </app-side-menu> 
