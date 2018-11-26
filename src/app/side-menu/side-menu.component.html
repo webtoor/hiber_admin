@@ -1,3 +1,4 @@
+<app-side-menu>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -26,7 +27,7 @@
           </a>
             <mat-list-item>
                 <mat-icon matListIcon>card_travel</mat-icon>
-              <a href="#">ORDER</a>
+              <a href="/order">ORDER</a>
             </mat-list-item>
           </mat-nav-list>
       </mat-expansion-panel>

@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort } from '@angular/material';
+import { UserOrderDataSource } from './user-order-datasource';
 
 @Component({
   selector: 'app-user-order',
   templateUrl: './user-order.component.html',
   styleUrls: ['./user-order.component.scss'],
 })
-export class UserOrderComponent {
+export class UserOrderComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  dataSource: UserOrderDataSource;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
+  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
+  displayedColumns = ['id', 'name'];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
+  ngOnInit() {
+    this.dataSource = new UserOrderDataSource(this.paginator, this.sort);
+  }
 }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { UserUserComponent } from './user-user/user-user.component';
+import { UserOrderComponent } from './user-order/user-order.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 
 
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path:'login' , component: LoginComponent },
   { path:'dashboard' , component: DashboardComponent, canActivate : [AuthGuardService] },
   { path:'user' , component: UserUserComponent, canActivate : [AuthGuardService] },
-
+  { path:'order' , component: UserOrderComponent, canActivate : [AuthGuardService] },
  ];
 
 @NgModule({

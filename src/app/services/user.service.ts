@@ -37,6 +37,31 @@ export class UserService {
     catchError(this.handleError)
   );
 }  
+
+getOrder() : Observable<UserUser[]> {
+  const data  = localStorage.getItem('adminData');
+  this.data_admin = JSON.parse(data);
+  //console.log(this.data_admin)
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + this.data_admin['access_token']
+    })
+  };
+ //return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions)
+ return this.http.get<UserUser[]>(apiUrl + 'order_show', httpOptions) 
+ .pipe(
+  map(res => {
+    if (res['success'] == false) {
+      throw new Error('Value expected!');
+    }
+    //console.log(res['data'])
+    return res['data'];
+  }),
+  catchError(this.handleError)
+);
+}  
    
 
   private handleError(error: Response | any) {  
