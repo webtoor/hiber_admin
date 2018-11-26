@@ -21,6 +21,7 @@ import { UserUserComponent } from './user-user/user-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UserService } from './services/user.service';
+import { UserOrderComponent } from './user-order/user-order.component';
 
 
 
@@ -31,6 +32,7 @@ import { UserService } from './services/user.service';
     DashboardComponent,
     LoginComponent,
     UserUserComponent,
+    UserOrderComponent,
   ],
   imports: [
     BrowserModule,
