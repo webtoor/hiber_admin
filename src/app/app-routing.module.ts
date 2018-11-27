@@ -16,7 +16,7 @@ const routes: Routes = [
   { path:'dashboard' , component: DashboardComponent, canActivate : [AuthGuardService] },
   { path:'user' , component: UserUserComponent, canActivate : [AuthGuardService] },
   { path:'order' , component: UserOrderComponent, canActivate : [AuthGuardService] },
-  { path:'order/detail' , component:  OrderDetailComponent, canActivate : [AuthGuardService] },
+  { path:'order/detail/:id' , component:  OrderDetailComponent, canActivate : [AuthGuardService] },
 
  ];
 @NgModule({

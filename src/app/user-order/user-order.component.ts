@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { UserOrder } from '../model/user-order.model'
 
@@ -15,7 +16,7 @@ export class UserOrderComponent implements OnInit {
   length
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['subject','username', 'projecttype', 'dtprojectstart', 'dtprojectend', 'created_at', 'id'];
-  constructor(private userService: UserService) {
+  constructor(public router : Router, private userService: UserService) {
   }
   ngOnInit() {
     this.userService.getOrder().subscribe(record => {
@@ -42,6 +43,7 @@ export class UserOrderComponent implements OnInit {
 
   showDetail(id:string){
     console.log(id)
+    this.router.navigate(['order/detail', id])
   }
   
 }

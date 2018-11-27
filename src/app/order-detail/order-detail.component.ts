@@ -1,5 +1,6 @@
 /// <reference types="@types/googlemaps" />
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-order-detail',
@@ -13,10 +14,11 @@ export class OrderDetailComponent implements OnInit {
   @ViewChild('gmap') gmapElement: any;
   
   map: google.maps.Map;
-  constructor() { }
+  constructor(public route : ActivatedRoute) { }
 
   ngOnInit() {
-    
+    let ids = this.route.snapshot.paramMap.get('id');
+    console.log(ids)
     var mapProp = {
       center: new google.maps.LatLng(18.5793, 73.8143),
       zoom: 15,
