@@ -1,4 +1,5 @@
 export interface UserOrder {
+    id: string;
     subject:string;
     dtprojectstart:Date;
     dtprojectend:Date;

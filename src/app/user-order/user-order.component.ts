@@ -14,7 +14,7 @@ export class UserOrderComponent implements OnInit {
   dataSource: MatTableDataSource<UserOrder>
   length
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['subject','username', 'projecttype', 'dtprojectstart', 'dtprojectend', 'created_at'];
+  displayedColumns = ['subject','username', 'projecttype', 'dtprojectstart', 'dtprojectend', 'created_at', 'id'];
   constructor(private userService: UserService) {
   }
   ngOnInit() {
@@ -38,6 +38,10 @@ export class UserOrderComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  showDetail(id:string){
+    console.log(id)
   }
   
 }

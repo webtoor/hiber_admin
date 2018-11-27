@@ -41,6 +41,13 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Project End</th>
         <td mat-cell *matCellDef="let row">{{row.dtprojectend}}</td>
       </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><div style="text-align: center">Action</div></th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-raised-button color="accent" (click)="showDetail(row.id)">Detail</button>
+        </td>
+      </ng-container>
     
     
 
