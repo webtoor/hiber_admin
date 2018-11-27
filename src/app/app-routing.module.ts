@@ -4,6 +4,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { UserUserComponent } from './user-user/user-user.component';
 import { UserOrderComponent } from './user-order/user-order.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+
 import { AuthGuardService } from './guards/auth-guard.service';
 
 
@@ -14,8 +16,9 @@ const routes: Routes = [
   { path:'dashboard' , component: DashboardComponent, canActivate : [AuthGuardService] },
   { path:'user' , component: UserUserComponent, canActivate : [AuthGuardService] },
   { path:'order' , component: UserOrderComponent, canActivate : [AuthGuardService] },
- ];
+  { path:'order/detail' , component:  OrderDetailComponent, canActivate : [AuthGuardService] },
 
+ ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
