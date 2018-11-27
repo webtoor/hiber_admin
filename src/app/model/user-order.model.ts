@@ -4,4 +4,7 @@ export interface UserOrder {
     dtprojectend:Date;
     created_at:Date;
     projecttype: string;
+    user_client : {
+        username : string;
+    }
 }

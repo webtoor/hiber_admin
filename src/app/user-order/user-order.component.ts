@@ -14,7 +14,7 @@ export class UserOrderComponent implements OnInit {
   dataSource: MatTableDataSource<UserOrder>
   length
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['subject', 'projecttype', 'dtprojectstart', 'dtprojectend', 'created_at'];
+  displayedColumns = ['subject','username', 'projecttype', 'dtprojectstart', 'dtprojectend', 'created_at'];
   constructor(private userService: UserService) {
   }
   ngOnInit() {
@@ -23,6 +23,14 @@ export class UserOrderComponent implements OnInit {
       console.log(record)
       this.length = record.length;
       this.dataSource.paginator = this.paginator;
+      this.dataSource.filterPredicate = function(data, filter: string): boolean {
+        return data.subject.toLowerCase().includes(filter) || 
+        data.user_client.username.toLowerCase().includes(filter) ||
+        data.projecttype.toString().includes(filter)  || 
+        data.dtprojectstart.toString().includes(filter) || 
+        data.dtprojectend.toString().includes(filter) || 
+        data.created_at.toString().includes(filter)  
+      }; 
     }); 
   }
 
