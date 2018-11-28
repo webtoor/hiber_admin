@@ -73,5 +73,17 @@ getOrder() : Observable<UserOrder[]> {
 /*   getUser(): Observable<UserUser[]> {
     return this.http.get<UserUser[]>(serviceUrl);
   } */
-  
+  getData(type, access_token){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept' : 'application/json',
+        'Authorization': 'Bearer ' + access_token
+      })
+    };
+    return this.http.get(apiUrl+type, httpOptions)
+    .pipe(
+      
+      );
+  }
 }
