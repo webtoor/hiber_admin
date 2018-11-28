@@ -14,6 +14,8 @@ export class OrderDetailComponent implements OnInit {
   
   @ViewChild('gmap') gmapElement: any;
   responseData:any;
+  items:any;
+  items_output:any;
   map: google.maps.Map;
   constructor(public route : ActivatedRoute, public userservice : UserService ) { }
 
@@ -22,7 +24,9 @@ export class OrderDetailComponent implements OnInit {
     this.userservice.getData("order_detail_show/" + id_order).subscribe(
       res => {
         this.responseData = res
-          console.log(res)
+        this.items = this.responseData['location']
+        this.items_output = this.responseData['output']
+
           console.log(this.responseData['location'])
           var mapOptions = {
             center: new google.maps.LatLng(this.responseData['location'][0]['latitude'], this.responseData['location'][0]['longitude']),
@@ -45,6 +49,7 @@ export class OrderDetailComponent implements OnInit {
             fillOpacity: 0.35,
           });
           cords = [];
+
       },
       err => console.log(err)
     );

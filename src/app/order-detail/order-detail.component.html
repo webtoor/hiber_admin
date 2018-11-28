@@ -1,2 +1,15 @@
-
-<div #gmap id="gmap"></div>
+<app-side-menu>
+  <div id="floating-panel" class="mat-elevation-z8">
+    <div style="text-align:center;"><b>Informasi Detail</b></div>
+    <br>
+    <div *ngFor="let itemz of items_output" style="color:black">
+            <div *ngIf="itemz.output_id == 1"> Output : Video</div>
+            <div *ngIf="itemz.output_id == 2"> Output : Foto</div>
+            <div *ngIf="itemz.output_id == 3"> Output : Peta</div>
+        </div>
+    <div *ngFor="let item of items" style="color:black">
+        Latitude + Longitude : {{item.latitude}} + {{item.longitude}}
+    </div>
+  </div>
+  <div #gmap id="gmap"></div>
+</app-side-menu>
