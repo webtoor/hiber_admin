@@ -73,12 +73,14 @@ getOrder() : Observable<UserOrder[]> {
 /*   getUser(): Observable<UserUser[]> {
     return this.http.get<UserUser[]>(serviceUrl);
   } */
-  getData(type, access_token){
+  getData(type){
+    const data  = localStorage.getItem('adminData');
+    this.data_admin = JSON.parse(data);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Accept' : 'application/json',
-        'Authorization': 'Bearer ' + access_token
+        'Authorization': 'Bearer ' + this.data_admin['access_token']
       })
     };
     return this.http.get(apiUrl+type, httpOptions)
