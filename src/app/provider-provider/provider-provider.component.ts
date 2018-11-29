@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
-import { ProviderProviderDataSource } from './provider-provider-datasource';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Provider } from '../model/provider-provider.model'
 
 @Component({
   selector: 'app-provider-provider',
@@ -10,12 +10,11 @@ import { ProviderProviderDataSource } from './provider-provider-datasource';
 export class ProviderProviderComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: ProviderProviderDataSource;
+  dataSource: MatTableDataSource<Provider>
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
 
   ngOnInit() {
-    this.dataSource = new ProviderProviderDataSource(this.paginator, this.sort);
   }
 }
