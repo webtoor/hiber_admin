@@ -23,6 +23,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { UserService } from './services/user.service';
 import { UserOrderComponent } from './user-order/user-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { ProviderUserComponent } from './provider-user/provider-user.component';
 
 
 
@@ -35,6 +36,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     UserUserComponent,
     UserOrderComponent,
     OrderDetailComponent,
+    ProviderUserComponent,
   ],
   imports: [
     BrowserModule,
