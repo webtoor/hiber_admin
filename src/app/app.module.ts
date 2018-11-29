@@ -21,6 +21,8 @@ import { UserUserComponent } from './user-user/user-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UserService } from './services/user.service';
+import { ProviderService } from './services/provider.service';
+
 import { UserOrderComponent } from './user-order/user-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { ProviderProviderComponent } from './provider-provider/provider-provider.component';
@@ -61,7 +63,7 @@ import { ProviderProviderComponent } from './provider-provider/provider-provider
     MatInputModule,
     HttpClientModule 
   ],
-  providers: [AuthGuardService, UserService],
+  providers: [AuthGuardService, UserService, ProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
