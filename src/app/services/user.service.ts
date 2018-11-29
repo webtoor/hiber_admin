@@ -4,6 +4,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { UserUser } from '../model/user-user.model';
 import { UserOrder } from '../model/user-order.model';
 import { map, catchError } from 'rxjs/operators';
+import { Router} from '@angular/router';
+
 let apiUrl = "http://127.0.0.1:8000/api/admin/";
 let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
 
@@ -12,11 +14,12 @@ let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
 })
 export class UserService {
   data_admin:any;
-  constructor(private http: HttpClient ) {}
-
-   getUser() : Observable<UserUser[]> {
+  constructor(private http: HttpClient, private router:Router ) {
     const data  = localStorage.getItem('adminData');
     this.data_admin = JSON.parse(data);
+  }
+
+   getUser() : Observable<UserUser[]> {
     //console.log(this.data_admin)
     const httpOptions = {
       headers: new HttpHeaders({
@@ -29,10 +32,12 @@ export class UserService {
    return this.http.get<UserUser[]>(apiUrl + 'user_show', httpOptions) 
    .pipe(
     map(res => {
-      if (res['success'] == false) {
-        throw new Error('Value expected!');
+      if (res['success'] == false || res['status'] == 401) {
+        //throw new Error('Value expected!');
+        localStorage.removeItem('adminData');
+        this.router.navigate(['/login']);
       }
-      //console.log(res['data'])
+      console.log(res)
       return res['data'];
     }),
     catchError(this.handleError)
@@ -40,8 +45,6 @@ export class UserService {
 }  
 
 getOrder() : Observable<UserOrder[]> {
-  const data  = localStorage.getItem('adminData');
-  this.data_admin = JSON.parse(data);
   //console.log(this.data_admin)
   const httpOptions = {
     headers: new HttpHeaders({
@@ -74,8 +77,6 @@ getOrder() : Observable<UserOrder[]> {
     return this.http.get<UserUser[]>(serviceUrl);
   } */
   getData(type){
-    const data  = localStorage.getItem('adminData');
-    this.data_admin = JSON.parse(data);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
