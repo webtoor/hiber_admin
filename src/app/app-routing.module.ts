@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { UserUserComponent } from './user-user/user-user.component';
 import { UserOrderComponent } from './user-order/user-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
-
+import { ProviderProviderComponent} from './provider-provider/provider-provider.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 
 
@@ -17,6 +17,8 @@ const routes: Routes = [
   { path:'user' , component: UserUserComponent, canActivate : [AuthGuardService] },
   { path:'order' , component: UserOrderComponent, canActivate : [AuthGuardService] },
   { path:'order/detail/:id' , component:  OrderDetailComponent, canActivate : [AuthGuardService] },
+  { path:'provider' , component: ProviderProviderComponent, canActivate : [AuthGuardService] },
+
 
  ];
 @NgModule({

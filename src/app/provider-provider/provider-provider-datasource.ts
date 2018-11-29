@@ -4,13 +4,13 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
-export interface ProviderUserItem {
+export interface ProviderProviderItem {
   name: string;
   id: number;
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: ProviderUserItem[] = [
+const EXAMPLE_DATA: ProviderProviderItem[] = [
   {id: 1, name: 'Hydrogen'},
   {id: 2, name: 'Helium'},
   {id: 3, name: 'Lithium'},
@@ -34,12 +34,12 @@ const EXAMPLE_DATA: ProviderUserItem[] = [
 ];
 
 /**
- * Data source for the ProviderUser view. This class should
+ * Data source for the ProviderProvider view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class ProviderUserDataSource extends DataSource<ProviderUserItem> {
-  data: ProviderUserItem[] = EXAMPLE_DATA;
+export class ProviderProviderDataSource extends DataSource<ProviderProviderItem> {
+  data: ProviderProviderItem[] = EXAMPLE_DATA;
 
   constructor(private paginator: MatPaginator, private sort: MatSort) {
     super();
@@ -50,7 +50,7 @@ export class ProviderUserDataSource extends DataSource<ProviderUserItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<ProviderUserItem[]> {
+  connect(): Observable<ProviderProviderItem[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -77,7 +77,7 @@ export class ProviderUserDataSource extends DataSource<ProviderUserItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: ProviderUserItem[]) {
+  private getPagedData(data: ProviderProviderItem[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -86,7 +86,7 @@ export class ProviderUserDataSource extends DataSource<ProviderUserItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: ProviderUserItem[]) {
+  private getSortedData(data: ProviderProviderItem[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
