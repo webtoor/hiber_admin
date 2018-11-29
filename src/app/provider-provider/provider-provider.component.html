@@ -1,6 +1,9 @@
 <app-side-menu>
 <div class="mat-elevation-z8">
-  <mat-table [dataSource]="dataSource" >
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field> 
+    <mat-table [dataSource]="dataSource" >
 
     <ng-container matColumnDef="username">
       <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
