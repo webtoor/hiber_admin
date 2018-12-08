@@ -8,7 +8,7 @@ import { Router} from '@angular/router';
 
 //let apiUrl = "http://127.0.0.1:8000/api/admin/";
 let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
-let apiUrl = "http://hiber.eidaramata.com/public/api/admin/"
+let apiUrl = "//hiber.eidaramata.com/public/api/admin/"
 
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 //let apiUrl = "http://127.0.0.1:8000/";
-let apiUrl = "http://hiber.eidaramata.com/public/"
+let apiUrl = "//hiber.eidaramata.com/public/"
 
 @Injectable({
   providedIn: 'root'
