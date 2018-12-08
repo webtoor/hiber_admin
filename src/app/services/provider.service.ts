@@ -6,7 +6,8 @@ import { UserOrder } from '../model/user-order.model';
 import { map, catchError } from 'rxjs/operators';
 import { Router} from '@angular/router';
 
-let apiUrl = "http://127.0.0.1:8000/api/admin/";
+//let apiUrl = "http://127.0.0.1:8000/api/admin/";
+let apiUrl = "http://hiber.eidaramata.com/public/api/admin/"
 
 
 @Injectable({
