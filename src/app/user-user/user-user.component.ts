@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import { AuthService } from '../auth.service';
 import { UserService } from '../services/user.service';
 import { UserUser } from '../model/user-user.model'
 
@@ -38,7 +37,7 @@ export class UserUserComponent implements OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
 
-  constructor(public authService : AuthService, private userService: UserService) {
+  constructor(private userService: UserService) {
    
    }
 
