@@ -1,15 +1,14 @@
+const path = require('path');
 const express = require('express');
 const app = express();
-const path = require('path');
 
-app.use(express.static(__dirname+'/dist'));
+// Serve static files
+app.use(express.static(__dirname + '/dist/hiber-admin'));
 
-app.listen(process.env.PORT||8080);
-
-
-//Path Location Strategy
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname+'/dist/index.html'));
+// Send all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/hiber-admin/index.html'));
 });
 
-console.log('Console Listening'); 
+// default Heroku port
+app.listen(process.env.PORT || 5000);
