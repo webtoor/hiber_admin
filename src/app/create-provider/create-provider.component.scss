@@ -1,0 +1,15 @@
+.createProvider {
+    position: relative;
+    max-width: 100%;
+    margin: 20px;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+  }
+  .example-container > * {
+    margin:auto;
+    width: 100%;
+  }
+  
