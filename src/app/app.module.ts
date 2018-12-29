@@ -26,6 +26,7 @@ import { ProviderService } from './services/provider.service';
 import { UserOrderComponent } from './user-order/user-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { ProviderProviderComponent } from './provider-provider/provider-provider.component';
+import { CreateProviderComponent } from './create-provider/create-provider.component';
 
 
 
@@ -39,6 +40,7 @@ import { ProviderProviderComponent } from './provider-provider/provider-provider
     UserOrderComponent,
     OrderDetailComponent,
     ProviderProviderComponent,
+    CreateProviderComponent,
   ],
   imports: [
     BrowserModule,
