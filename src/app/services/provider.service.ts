@@ -95,4 +95,18 @@ getOrder() : Observable<UserOrder[]> {
       
       );
   }
+
+  postData(type){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept' : 'application/json',
+        'Authorization': 'Bearer ' + this.data_admin['access_token']
+      })
+    };
+    return this.http.post<any>(apiUrl+type, httpOptions)
+    .pipe(
+      
+    );
+  }
 }
