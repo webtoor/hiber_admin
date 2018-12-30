@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { ProviderService } from '../services/provider.service';
 @Component({
   selector: 'app-create-provider',
   templateUrl: './create-provider.component.html',
@@ -22,16 +22,16 @@ export class CreateProviderComponent implements OnInit {
     lastname : '',
     email : '',
     phonenumber : '',
-    password: ''}
+    password: '',
+    password_confirmation : '',
+    registerType : '1'}
 
-  constructor() { }
+  constructor(public providerService : ProviderService) { }
 
   ngOnInit() {
   }
 
-  createProvider(){
-
-  }
+ 
   getErrorUsername() {
     return this.username.hasError('required') ? 'You must enter a value' : '';
   }
@@ -53,4 +53,32 @@ export class CreateProviderComponent implements OnInit {
   getErrorPassword() {
     return this.password.hasError('required') ? 'You must enter a value' : '';
   }
+
+  submit(){
+    this.createUser.username = this.username.value;
+    this.createUser.firstname = this.firstname.value;
+    this.createUser.lastname = this.lastname.value;
+    this.createUser.email = this.email.value;
+    this.createUser.phonenumber = this.phonenumber.value;
+    this.createUser.password = this.password.value;
+    this.createUser.password_confirmation = this.password.value;
+    console.log(this.createUser)
+    if(this.createUser.email && this.createUser.password){
+    this.providerService.postData(this.createUser, "register").subscribe(
+      res => {
+        console.log(res)
+        if(res.success == true){
+          alert ('Create Provider Success!');
+        }
+        if(res.error.email[0]){
+          alert ('The email has already been taken!!');
+        }
+    
+    },
+      err => console.log(err)
+    )
+  }else{
+    alert ('All field is required!!');
+  }
+}
 }

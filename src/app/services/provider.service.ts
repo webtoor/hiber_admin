@@ -96,7 +96,7 @@ getOrder() : Observable<UserOrder[]> {
       );
   }
 
-  postData(type){
+  postData(credentials, type){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -104,7 +104,7 @@ getOrder() : Observable<UserOrder[]> {
         'Authorization': 'Bearer ' + this.data_admin['access_token']
       })
     };
-    return this.http.post<any>(apiUrl+type, httpOptions)
+    return this.http.post<any>("http://127.0.0.1:8000/"+type, credentials, httpOptions)
     .pipe(
       
     );
