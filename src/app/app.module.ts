@@ -27,6 +27,7 @@ import { UserOrderComponent } from './user-order/user-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { ProviderProviderComponent } from './provider-provider/provider-provider.component';
 import { CreateProviderComponent } from './create-provider/create-provider.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 
 
@@ -41,6 +42,7 @@ import { CreateProviderComponent } from './create-provider/create-provider.compo
     OrderDetailComponent,
     ProviderProviderComponent,
     CreateProviderComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,
