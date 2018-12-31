@@ -1,3 +1,55 @@
-<p>
-  create-user works!
-</p>
+<app-side-menu>
+  <mat-card class="createUser">
+    <mat-grid-list cols="2" rowHeight="500px">
+
+      <mat-card-title>
+        <div style="text-align:center; color:#ff4081">CREATE USER</div>
+      </mat-card-title>
+      <br>
+      <mat-card-content>
+        <div class="example-container">
+           <mat-form-field >
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter Username" [formControl]="username" autofocus>
+            <mat-error *ngIf="username.invalid">{{getErrorUsername()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Firstname</mat-label>
+            <input matInput placeholder="Enter Firstname" [formControl]="firstname">
+            <mat-error *ngIf="firstname.invalid">{{getErrorFirstname()}}</mat-error>
+          </mat-form-field>
+ 
+          <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input matInput placeholder="Enter Lastname" [formControl]="lastname">
+            <mat-error *ngIf="lastname.invalid">{{getErrorLastname()}}</mat-error>
+          </mat-form-field> 
+
+          <mat-form-field >
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Email" [formControl]="email">
+            <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field >
+              <mat-label>Contact</mat-label>
+              <input type="number" matInput placeholder="Enter Contact" [formControl]="phonenumber">
+              <mat-error *ngIf="phonenumber.invalid">{{getErrorPhonenumber()}}</mat-error>
+            </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password" type="password" [formControl]="password">
+            <mat-error *ngIf="password.invalid">{{getErrorPassword()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div style="text-align:center">
+          <button mat-raised-button color="primary" style="width:200px" (click)="submit()">SUBMIT</button>
+        </div>
+      </mat-card-content>
+    </mat-grid-list>
+
+  </mat-card>
+</app-side-menu>
