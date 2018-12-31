@@ -25,7 +25,7 @@ export class CreateUserComponent implements OnInit {
     password: '',
     password_confirmation : '',
     registerType : '2'}
-  constructor() { }
+  constructor(public userService : UserService) { }
 
   ngOnInit() {
   }
@@ -60,7 +60,7 @@ export class CreateUserComponent implements OnInit {
     this.createUser.password_confirmation = this.password.value;
     console.log(this.createUser)
     if(this.createUser.email && this.createUser.password){
-    this.providerService.postData(this.createUser, "register").subscribe(
+    this.userService.postData(this.createUser, "register").subscribe(
       res => {
         console.log(res)
         if(res.success == true){
