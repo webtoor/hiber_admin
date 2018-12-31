@@ -15,7 +15,6 @@ export class CreateProviderComponent implements OnInit {
   password = new FormControl ('', [Validators.required] )
   email = new FormControl('', [Validators.required, Validators.email]);
 
-
   createUser = { 
     username : '',
     firstname : '',
