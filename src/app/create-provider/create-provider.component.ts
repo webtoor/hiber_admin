@@ -69,8 +69,8 @@ export class CreateProviderComponent implements OnInit {
         if(res.success == true){
           alert ('Create Provider Success!');
         }
-        if(res.error.email[0]){
-          alert ('The email has already been taken!!');
+        if(res.error){
+          alert (res.error.email[0]);
         }
     
     },

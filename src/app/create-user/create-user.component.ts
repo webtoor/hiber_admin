@@ -64,10 +64,10 @@ export class CreateUserComponent implements OnInit {
       res => {
         console.log(res)
         if(res.success == true){
-          alert ('Create Provider Success!');
+          alert ('Create User Success!');
         }
-        if(res.error.email[0]){
-          alert ('The email has already been taken!!');
+        if(res.error){
+          alert (res.error.email[0]);
         }
     
     },
