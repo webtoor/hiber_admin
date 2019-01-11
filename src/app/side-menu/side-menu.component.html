@@ -9,21 +9,21 @@
         <mat-divider></mat-divider>
       </mat-nav-list>
     <mat-accordion>
-      <mat-expansion-panel class="no-shadow">
+      <mat-expansion-panel class="no-shadow" [expanded]="true">
         <mat-expansion-panel-header>
           MANAGE USER
         </mat-expansion-panel-header>
     
       
-        <mat-nav-list style="margin-top:-20px" dense >
-          <a href="/user">
-            <mat-list-item>
+        <mat-nav-list style="margin-top:-20px" dense open>
+          <a href="/user" >
+            <mat-list-item routerLinkActive="active-list-item">
                 <mat-icon matListIcon>account_circle</mat-icon>
               USER
             </mat-list-item>
           </a>
           <a href="/order">
-            <mat-list-item>
+            <mat-list-item routerLinkActive="active-list-item">
                 <mat-icon matListIcon>card_travel</mat-icon>
               ORDER
             </mat-list-item>
@@ -36,7 +36,7 @@
 
     <mat-accordion>
 
-        <mat-expansion-panel class="no-shadow">
+        <mat-expansion-panel class="no-shadow" [expanded]="true">
           <mat-expansion-panel-header>
              MANAGE PROVIDER
           </mat-expansion-panel-header>
