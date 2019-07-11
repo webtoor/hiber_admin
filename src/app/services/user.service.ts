@@ -6,9 +6,9 @@ import { UserOrder } from '../model/user-order.model';
 import { map, catchError } from 'rxjs/operators';
 import { Router} from '@angular/router';
 
-let apiUrl = "http://127.0.0.1:8000/api/admin/";
+//let apiUrl = "http://127.0.0.1:8000/api/admin/";
 let serviceUrl = 'https://jsonplaceholder.typicode.com/users';
-//let apiUrl = "http://hiber.eidaramata.com/public/api/admin/"
+let apiUrl = "http://hiber.eidaramata.com/public/api/admin/"
 
 @Injectable({
   providedIn: 'root'
@@ -99,7 +99,7 @@ getOrder() : Observable<UserOrder[]> {
         'Authorization': 'Bearer ' + this.data_admin['access_token']
       })
     };
-    return this.http.post<any>("http://127.0.0.1:8000/"+type, credentials, httpOptions)
+    return this.http.post<any>("http://hiber.eidaramata.com/public/"+type, credentials, httpOptions)
     .pipe(
       
     );

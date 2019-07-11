@@ -28,8 +28,8 @@ export class ProviderProviderComponent implements OnInit {
        this.dataSource.filterPredicate = function(data, filter: string): boolean {
         return data.user.username.toLowerCase().includes(filter) || 
         data.user.email.toLowerCase().includes(filter) || 
-        data.user.firstname.toLowerCase().includes(filter) || 
-        data.user.lastname.toLowerCase().includes(filter) || 
+     /*    data.user.firstname.toLowerCase().includes(filter) || 
+        data.user.lastname.toLowerCase().includes(filter) ||  */
         data.user.phonenumber.toString().includes(filter) || 
         data.user.created_at.toString().includes(filter)  
       }; 
