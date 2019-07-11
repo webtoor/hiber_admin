@@ -23,3 +23,6 @@
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+.active-list-item {
+  color: red !important; /* Note: You could also use a custom theme */
+}

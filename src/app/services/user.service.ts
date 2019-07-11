@@ -90,4 +90,18 @@ getOrder() : Observable<UserOrder[]> {
       
       );
   }
+
+  postData(credentials, type){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept' : 'application/json',
+        'Authorization': 'Bearer ' + this.data_admin['access_token']
+      })
+    };
+    return this.http.post<any>("http://hiber.eidaramata.com/public/"+type, credentials, httpOptions)
+    .pipe(
+      
+    );
+  }
 }

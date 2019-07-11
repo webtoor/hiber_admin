@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { UserService } from '../services/user.service';
 import { UserUser } from '../model/user-user.model'
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -37,7 +38,7 @@ export class UserUserComponent implements OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
 
-  constructor(private userService: UserService) {
+  constructor(public router : Router, private userService: UserService) {
    
    }
 
@@ -48,14 +49,14 @@ export class UserUserComponent implements OnInit {
    
    this.userService.getUser().subscribe(record => {
     this.dataSource = new MatTableDataSource(record);
-   // console.log(record[0]['user'])
+   //console.log(record[0]['user'])
     this.length = record.length;
     this.dataSource.paginator = this.paginator;
      this.dataSource.filterPredicate = function(data, filter: string): boolean {
       return data.user.username.toLowerCase().includes(filter) || 
       data.user.email.toLowerCase().includes(filter) || 
-      data.user.firstname.toLowerCase().includes(filter) || 
-      data.user.lastname.toLowerCase().includes(filter) || 
+      /* data.user.firstname.toLowerCase().includes(filter) || 
+      data.user.lastname.toLowerCase().includes(filter) ||  */
       data.user.phonenumber.toString().includes(filter) || 
       data.user.created_at.toString().includes(filter)  
     }; 
@@ -79,6 +80,10 @@ export class UserUserComponent implements OnInit {
       return this.datas = datas;
     });
   } */
+
+  createUser(){
+    this.router.navigate(['user/create-user'])
+  }
 
 
 }
