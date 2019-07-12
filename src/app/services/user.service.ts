@@ -38,7 +38,7 @@ export class UserService {
         localStorage.removeItem('adminData');
         this.router.navigate(['/login']);
       }
-      console.log(res)
+      //console.log(res)
       return res['data'];
     }),
     catchError(this.handleError)

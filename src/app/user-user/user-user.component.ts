@@ -29,27 +29,37 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./user-user.component.scss'],
 })
 export class UserUserComponent implements OnInit {
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort
+  displayedColumns: string[] = ['username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
+  
+ 
+
   dataSource : MatTableDataSource<UserUser>
-  length
+  length;
+  
 /*   data_admin:any;
   user_data:any;
   datas : any; */
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['username', 'email', 'firstname', 'lastname', 'phonenumber', 'created_at'];
 
   constructor(public router : Router, private userService: UserService) {
-   
+
    }
+
+
 
   ngOnInit() {
     /* this.dataSource = new UserUserDataSource(this.paginator, this.sort); */
    //
-  // console.log(ELEMENT_DATA)
-   
+  //console.log(ELEMENT_DATA)
+
    this.userService.getUser().subscribe(record => {
     this.dataSource = new MatTableDataSource(record);
-   //console.log(record[0]['user'])
+    this.dataSource.sort = this.sort;
+
+   console.log(record)
     this.length = record.length;
     this.dataSource.paginator = this.paginator;
      this.dataSource.filterPredicate = function(data, filter: string): boolean {
@@ -60,9 +70,8 @@ export class UserUserComponent implements OnInit {
       data.user.phonenumber.toString().includes(filter) || 
       data.user.created_at.toString().includes(filter)  
     }; 
+
   }); 
-
-
 
   }
 

@@ -29,29 +29,29 @@
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field> 
-  <mat-table class="full-width-table" [dataSource]="dataSource" >
+  <mat-table class="full-width-table" [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.username}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.email}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="firstname">
-      <mat-header-cell *matHeaderCellDef>Firstname</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Firstname</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.firstname}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="lastname">
-      <mat-header-cell *matHeaderCellDef>Lastname</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Lastname</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.lastname}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="phonenumber">
-        <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
         <mat-cell *matCellDef="let user"> {{user.user.phonenumber}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="created_at">
-      <mat-header-cell *matHeaderCellDef>Join</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Join</mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.user.created_at | date:'MMM dd, yyyy' }} </mat-cell>
   </ng-container>
    <!--  <ng-container matColumnDef="phone">
